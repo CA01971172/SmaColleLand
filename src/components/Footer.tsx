@@ -1,9 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
-import MapIcon from "@mui/icons-material/Map";
 import QrCode2Icon from "@mui/icons-material/QrCode2";
-import AdsClickIcon from "@mui/icons-material/AdsClick";
 import { styled } from "@mui/system"
 import HanabiIcon from "../images/hanabi.png"
 import { useContext, useEffect } from "react";
@@ -47,19 +45,9 @@ export default function Footer(){
                 icon={<img src={HanabiIcon} alt="Hanabi" style={{ width: 24, height: 24 }}/>}
             /> 
             <CustomBottomNavigationAction
-                value={"map"}
-                label="マップ"
-                icon={<MapIcon/>}
-            />
-            <CustomBottomNavigationAction
                 value={"scan-qr"}
                 label="QR読取"
                 icon={<QrCode2Icon/>}
-            />
-            <CustomBottomNavigationAction
-                value={"enter-lottery"}
-                label="抽選応募"
-                icon={<AdsClickIcon/>}
             />
         </BottomNavigation>
     )
