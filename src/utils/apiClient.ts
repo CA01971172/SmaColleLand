@@ -2,8 +2,15 @@ import axios, { AxiosResponse } from "axios";
 import { FireworkData, FireworksData, HoleFireworksData, Profile, Registration } from "./types";
 
 // API呼び出し用のURLを定義する
+<<<<<<< HEAD
 const API_ENDPOINT: string = "https://yhqbebgnub.execute-api.ap-northeast-1.amazonaws.com/dev/api/v1";
 export const WS_ENDPOINT: string = "wss://yhqbebgnub.execute-api.ap-northeast-1.amazonaws.com/dev/";
+=======
+const API_ENDPOINT: string = "";
+export const WS_ENDPOINT: string = "";
+// const API_ENDPOINT: string = "https://vfml5unckb.execute-api.ap-northeast-1.amazonaws.com/dev/api/v1";
+// export const WS_ENDPOINT: string = "wss://pcg2x1k5lj.execute-api.ap-northeast-1.amazonaws.com/dev/";
+>>>>>>> 51c1922db20153eb6ee457dd8daae9573c964756
 // const API_ENDPOINT: string = "https://hanabinovation.org/api/v1";
 // const WS_ENDPOINT: string = "wss://hanabinovation.org/api/v1/websocket";
 
