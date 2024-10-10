@@ -29,12 +29,12 @@ export default function QRPage(){
     };
 
     function getQrData(qrText: string): QrData | "send-fireworks" {
-        const checkPattern: RegExp = /^https:\/\/hanabinovation\.org\/[^\/]+\/create-firework\/$/;
+        const checkPattern: RegExp = /^https:\/\/enp.hanabinovation\.org\/[^\/]+\/create-firework\/$/;
         const checkUrl: boolean = checkPattern.test(qrText);
-        const sendUrl: string = "https://hanabinovation.org/send-fireworks/";
+        const sendUrl: string = "https://enp.hanabinovation.org/send-fireworks/";
 
         if(checkUrl){
-            const checkPatternBooth: RegExp = /^https:\/\/hanabinovation\.org\/([^\/]+)\/create-firework\/$/;
+            const checkPatternBooth: RegExp = /^https:\/\/enp.hanabinovation\.org\/([^\/]+)\/create-firework\/$/;
             const match = qrText.match(checkPatternBooth);
 
             if(match && match[1]) {
