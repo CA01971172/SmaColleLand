@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useRef, useState } from "react";
+import { createContext, ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FireworkTypeInfo, Point, RisingAfterImage, RisingStars, Spark, Star } from "../utils/types";
 import { drawSpark, drawStar, generateFirework, generateRisingStars, initializeStars } from "../utils/hanabi";
 import { ulid } from "ulidx";
@@ -50,6 +50,22 @@ export function MultiFireworksProvider({children}: {children: ReactNode}){
     // 花火大会用花火データ
     const [fireworksData, setFireworksData] = useState<FireworkTypeInfo[] | null>(null);
     const intervalRef = useRef<number | null>(null);
+
+    // タブがアクティブかどうか
+    const [active, setActive] = useState<boolean>(true);
+    const onVisibilityChange = () => {
+        if (document.visibilityState === 'visible') {
+            console.log("タブの再アクティブ化")
+            setActive(true);
+        }else{
+            console.log("タブの非アクティブ化")
+            setActive(false);
+        }
+    };
+    useLayoutEffect(() => {
+        document.addEventListener("visibilitychange", onVisibilityChange);
+        return () => document.removeEventListener("visibilitychange", onVisibilityChange);
+    }, []);
 
     /* その他関数定義 */
     // 花火の打ち上げ初期位置・爆発中心位置を求める関数
@@ -627,6 +643,7 @@ export function MultiFireworksProvider({children}: {children: ReactNode}){
 
     // ランダムに花火を選び、打ち上げる関数
     function animateRandomFirework(){
+        if(!active) return; // タブが非アクティブなら、花火アニメーションをキャンセル
         if(!fireworksData) return;
         if(fireworksData.length > 0){
             // 取得した花火データの中からランダムに1つ選ぶ
