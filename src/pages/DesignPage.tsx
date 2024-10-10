@@ -72,13 +72,13 @@ export default function DesignPage(){
                         maxWidth: "300px"
                     }}
                 >
-                    <Button
+                    {/* <Button
                         variant="contained"
                         style={{display: "block"}}
                         onClick={() => setIsDrawing(prev => !prev)}
                     >
                         {isDrawing ? "戻る" : "自分で描く"}
-                    </Button>
+                    </Button> */}
                     <Button
                         variant="contained"
                         style={{display: "block"}}

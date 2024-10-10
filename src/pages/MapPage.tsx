@@ -3,7 +3,7 @@ import FooterPage from "../components/FooterPage";
 import mapBooth from "../images/map_booth.png";
 import { SCHOOL_DATA } from "../utils/config";
 import { DataContext } from "../providers/DataProvider";
-import createdHanabiPin from "../images/マップピン/花火作成済みマップピン.png";
+import createdHanabiPin from "../images/マップピン/PassedPoint.png";
 
 export default function MapPage(){
 
