@@ -107,7 +107,7 @@ export default function ConfirmCapture(){
 
     // 花火の撮影が終わったユーザーにメッセージを表示する関数
     function showCongratulations(){
-        const toastTexts: string[] = ["花火の撮影ありがとうございます！", "このメッセージをクリックすると「花火大会」に参加することができます。", "他の人の作った花火も見てみましょう！"];
+        const toastTexts: string[] = ["花火の撮影ありがとうございます！", "このメッセージをクリックすると「花火大会」に参加することができます。", "みんなが花火をあげていますよ！"];
         toast.info(
             createDivElements(toastTexts, () => {
                 isTakingPhoto.current = false; // 撮影ボタンの処理が終わったことを記録する

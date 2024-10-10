@@ -30,7 +30,7 @@ export default function DesignPage(){
         if(isPostedFirework === null || isPostedFirework) return;
 
         // 初回アクセスの場合、案内メッセージを表示する
-        const toastTexts: string[] = ["HANABINOVATIONへようこそ！", "あなただけの花火をデザインして、学園祭の思い出を彩りましょう！", "スタンプラリーを制覇して、抽選会に参加しましょう！"];
+        const toastTexts: string[] = ["HANABINOVATIONへようこそ！", `あなただけの花火をデザインして、"スマコレランドまつやま"での思い出を彩りましょう！`];
         toast.info(
             <div>
                 {toastTexts.map((text, index) => (
@@ -67,7 +67,8 @@ export default function DesignPage(){
                         padding: "1rem",
                         display: "flex",
                         flexDirection: "row",
-                        justifyContent: "space-between",
+                        // justifyContent: "space-between",
+                        justifyContent: "center",
                         width: "100%",
                         maxWidth: "300px"
                     }}
