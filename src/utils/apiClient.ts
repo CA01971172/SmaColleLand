@@ -3,7 +3,7 @@ import { FireworkData, FireworksData, HoleFireworksData, Profile, Registration }
 
 // API呼び出し用のURLを定義する
 const API_ENDPOINT: string = "https://yhqbebgnub.execute-api.ap-northeast-1.amazonaws.com/dev/api/v1";
-export const WS_ENDPOINT: string = "wss://yhqbebgnub.execute-api.ap-northeast-1.amazonaws.com/dev/";
+export const WS_ENDPOINT: string = "wss://mcbdt2dar1.execute-api.ap-northeast-1.amazonaws.com/dev/";
 
 // 全ユーザーの花火データを取得する関数
 export async function getFireworks(msAgo?: number): Promise<HoleFireworksData | null>{
