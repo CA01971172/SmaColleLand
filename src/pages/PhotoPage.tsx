@@ -10,6 +10,7 @@ import { BOOTH_ID_LIST } from "../utils/config";
 import ErrorPage from "./ErrorPage";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
+import logoBanner from "./../images/愛媛新聞ロゴ_白わくあり.png"
 
 /* 定数定義 */
 export const ICON_SIZE: string = "5rem"; // ボタンの大きさ
@@ -85,6 +86,17 @@ export default function PhotoPage(){
                         <Camera/>
                         <CaptureFireworkCanvas/>
                     </div>
+                    <img
+                        src={logoBanner}
+                        style={{
+                            position: "absolute",
+                            width: "80vw",
+                            bottom: "0",
+                            opacity: "0.7",
+                            padding: "5px",
+                            zIndex: "10"
+                        }}
+                    />
                     <ThemeProvider theme={theme}>
                         <ButtonArea theme={theme}/>
                     </ThemeProvider>
@@ -98,3 +110,4 @@ export default function PhotoPage(){
         )
     )
 }
+7

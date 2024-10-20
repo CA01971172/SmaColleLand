@@ -2,6 +2,8 @@ import { ReactNode, createContext, useRef, useContext, useState } from "react";
 import { saveAs } from "file-saver";
 import { CameraContext } from "./CameraProvider";
 import { FireworksContext } from "./FireworkProvider";
+import logoBanner from "./../images/愛媛新聞ロゴ_白わくあり.png"
+import { loadImage } from "../utils/modules";
 
 
 /* 型定義 */
@@ -9,7 +11,7 @@ import { FireworksContext } from "./FireworkProvider";
 type CaptureContext = {
     isTakingPhoto: React.MutableRefObject<boolean>;
     mergedCanvas: HTMLCanvasElement | null;
-    mergeCanvas(): HTMLCanvasElement | null;
+    mergeCanvas(): Promise<HTMLCanvasElement | null>;
     convertCanvasToBase64(canvasElement: HTMLCanvasElement): string | null;
     saveImage: (dataURL: string) => void;
 };
@@ -19,7 +21,7 @@ type CaptureContext = {
 const initialData: CaptureContext = {
     isTakingPhoto: {} as any,
     mergedCanvas: null,
-    mergeCanvas: () => null,
+    mergeCanvas: () => Promise.resolve(null),
     convertCanvasToBase64: () => null,
     saveImage: () => {}
 };
@@ -39,7 +41,7 @@ export function CaptureProvider({children}: {children: ReactNode}){
 
     /* 関数定義 */
     // カメラと花火のcanvas要素を合成したcanvas要素を作成し、refに保存する関数
-    function mergeCanvas(): HTMLCanvasElement | null{
+    async function mergeCanvas(): Promise<HTMLCanvasElement | null>{
         // カメラと花火のcanvas要素を、それぞれ取得する
         const fireworkCanvas: HTMLCanvasElement | null = canvasRef.current;
         const cameraCanvas: HTMLCanvasElement | null = getVideoCanvas();
@@ -58,6 +60,14 @@ export function CaptureProvider({children}: {children: ReactNode}){
         if(!canvasCtx) return null;
         canvasCtx.drawImage(cameraCanvas, 0, 0, width, height); // カメラを貼り付ける
         canvasCtx.drawImage(fireworkCanvas, 0, 0, width, height); // リングを貼り付ける
+
+        // 作成したcanvasに、ロゴを貼り付ける
+        const img: HTMLImageElement = await loadImage(logoBanner);
+        const imgWidth: number = width * 0.8;
+        const imgHeight: number = img.height * (imgWidth / img.width);
+        const padding: number = 5;
+        const imgY: number = height - imgHeight - padding;
+        canvasCtx.drawImage(img, padding, imgY, imgWidth, imgHeight); // カメラを貼り付ける
 
         setMergedCanvas(canvasElement);
         return canvasElement;

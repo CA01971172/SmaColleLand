@@ -190,3 +190,13 @@ export function base64ToBlob(base64: string, contentType: string = "image/png"):
     const byteArray = new Uint8Array(byteNumbers);
     return new Blob([byteArray], { type: contentType });
 }
+
+// 画像読み込み用のPromiseを作成
+export function loadImage(src: string): Promise<HTMLImageElement>{
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => resolve(img);  // 画像が読み込まれたらresolve
+        img.onerror = (err) => reject(err);  // 画像読み込みに失敗した場合はreject
+    });
+}

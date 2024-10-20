@@ -90,11 +90,12 @@ export default function ConfirmCapture(){
 
     // 撮影写真を保存する関数
     function saveCapturedImage(){
-        const mergedCanvas = mergeCanvas();
-        if(mergedCanvas){
-            const capturedImage = convertCanvasToBase64(mergedCanvas);
-            if(capturedImage) saveImage(capturedImage);
-        }
+        mergeCanvas().then((mergedCanvas) => {
+            if(mergedCanvas){
+                const capturedImage = convertCanvasToBase64(mergedCanvas);
+                if(capturedImage) saveImage(capturedImage);
+            }
+        })
     }
 
     // 撮影写真の確認処理を終了させる関数
@@ -107,7 +108,7 @@ export default function ConfirmCapture(){
 
     // 花火の撮影が終わったユーザーにメッセージを表示する関数
     function showCongratulations(){
-        const toastTexts: string[] = ["花火の撮影ありがとうございます！", "このメッセージをクリックすると「花火大会」に参加することができます。", "みんなが花火をあげていますよ！"];
+        const toastTexts: string[] = ["花火の撮影ありがとうございます！", "このメッセージをクリックすると「花火大会」に参加することができます。", "みんなの花火を見てみましょう！"];
         toast.info(
             createDivElements(toastTexts, () => {
                 isTakingPhoto.current = false; // 撮影ボタンの処理が終わったことを記録する
