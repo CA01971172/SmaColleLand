@@ -11,6 +11,7 @@ import ErrorPage from "./ErrorPage";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import logoBanner from "./../images/愛媛新聞ロゴ_白わくあり.png"
+import { getFireworksByUserId } from "../utils/apiClient";
 
 /* 定数定義 */
 export const ICON_SIZE: string = "5rem"; // ボタンの大きさ
@@ -46,7 +47,10 @@ export default function PhotoPage(){
     } = useContext(DataContext);
 
     const { boothId } = useParams();
-    const { setBoothId } = useContext(DataContext);
+    const {
+        userId,
+        setBoothId
+    } = useContext(DataContext);
     useEffect(() => {
         if(boothId) setBoothId(boothId);
     }, [boothId]);
@@ -66,6 +70,13 @@ export default function PhotoPage(){
             </div>)
         );
     }, [isPostedFirework]);
+
+    useEffect(() => {
+        if(!userId) return;
+        getFireworksByUserId(userId).then((data) => {
+            console.log("花火データ: ", data)
+        });
+    }, [userId])
 
     return (
         (BOOTH_ID_LIST.includes(boothId || "")) ? (

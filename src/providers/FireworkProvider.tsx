@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState, useEffect, useRef, useContext } from "react";
-import { ImageInfo, RisingAfterImage, RisingStars, Size, Spark, Star } from "../utils/types";
+import { FireworksData, ImageInfo, RisingAfterImage, RisingStars, Size, Spark, Star } from "../utils/types";
 import { generateStars, generateSparks, drawStar, drawSpark, initializeStars } from "../utils/hanabi";
 import { DataContext } from "./DataProvider";
 import { calculateDistance, findIntersection, getImageData, hexToRgba, sleep, getBoothColor, getImageSrc } from "../utils/modules";
@@ -14,6 +14,8 @@ type FireworksContent = {
     setFireworkPhase: React.Dispatch<React.SetStateAction<number>>;
     fireworkAnimationFrameId: number | null;
     sparksAnimationFrameId: number | null;
+    entourages: FireworksData | null;
+    setEntourage: React.Dispatch<React.SetStateAction<FireworksData | null>>;
 };
 
 /* Provider */
@@ -24,7 +26,9 @@ const initialData: FireworksContent = {
     fireworkPhase: 0,
     setFireworkPhase: {} as any,
     fireworkAnimationFrameId: null,
-    sparksAnimationFrameId: null
+    sparksAnimationFrameId: null,
+    entourages: null,
+    setEntourage: () => {}
 };
 
 export const FireworksContext = createContext<FireworksContent>(initialData);
@@ -59,6 +63,9 @@ export function FireworksProvider({children}: {children: ReactNode}){
     const isFinishedFireworkAnimation = useRef<boolean>(true); // 花火アニメーションが終了したかどうか
     const [sparksAnimationFrameId, setSparksAnimationFrameId] = useState<number | null>(null); // 火花アニメーション用ID
     const isFinishedSparksAnimation = useRef<boolean>(true); // 火花アニメーションが終了したかどうか
+
+    // サブ花火(全箇所撮影時に表示される過去の花火)の設定情報
+    const [ entourages, setEntourage ] = useState<FireworksData | null>(null);
 
     const {
         boothId,
@@ -745,7 +752,9 @@ export function FireworksProvider({children}: {children: ReactNode}){
                 fireworkPhase,
                 setFireworkPhase,
                 fireworkAnimationFrameId,
-                sparksAnimationFrameId
+                sparksAnimationFrameId,
+                entourages,
+                setEntourage
             }}
         >
             {children}
