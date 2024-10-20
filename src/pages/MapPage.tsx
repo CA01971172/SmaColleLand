@@ -46,7 +46,7 @@ export default function MapPage(){
     return (
         <FooterPage>
         <style>{getAnimationStyle()}</style>
-            <div>
+            <div style={{width: "100%", height: "100%"}}>
                 <div 
                     style={{
                         maxHeight: "100%",
@@ -60,7 +60,7 @@ export default function MapPage(){
                 >
                     <img 
                         src={mapBooth}
-                        style={{width: "100%", height: "90vh", zIndex: -1}}
+                        style={{width: "100%", height: "100%", zIndex: -1}}
                     >
                     </img>
                 </div>
