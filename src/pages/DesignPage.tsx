@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 
 export default function DesignPage(){
     const navigate = useNavigate();
-    const [ isDrawing, setIsDrawing ] = useState<boolean>(false); // 「自分で描く」中かどうか
+    const [ isDrawing, _setIsDrawing ] = useState<boolean>(false); // 「自分で描く」中かどうか
 
     // データを管理するためのcontext
     const {
