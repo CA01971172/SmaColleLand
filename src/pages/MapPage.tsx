@@ -1,6 +1,6 @@
 import { CSSProperties, useContext, useEffect, useState } from "react";
 import FooterPage from "../components/FooterPage";
-import mapBooth from "../images/map_booth.png";
+import mapBooth from "../images/map.png";
 import { SCHOOL_DATA } from "../utils/config";
 import { DataContext } from "../providers/DataProvider";
 import createdHanabiPin from "../images/マップピン/PassedPoint.png";
@@ -83,27 +83,6 @@ export default function MapPage(){
                                     )
                                 }
                             />
-                            <div
-                                style={{
-                                    position: "absolute",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    userSelect: "none",
-                                    top: `${schoolInfo.mapData.schoolNameY}vh`,
-                                    left: `${schoolInfo.mapData.schoolNameX}vw`,
-                                    ...(schoolInfo.mapData.writingMode.includes("vertical")) ? (
-                                        { height: `${schoolInfo.mapData.schoolNameWidth}vh` }
-                                    ) : (
-                                        { width: `${schoolInfo.mapData.schoolNameWidth}vw` }
-                                    ),
-                                    fontSize: "3.5vw",
-                                    color: "#000000",
-                                    writingMode: schoolInfo.mapData.writingMode,
-                                }}
-                            >
-                                {schoolInfo.schoolName}
-                            </div>
                         </div>
                     ))}
                 </div>
