@@ -54,7 +54,7 @@ export const SCHOOL_DATA: { [boothId: string]: SchoolInfo } = {
             pinImageSrc: pinB
         }
     },
-    "jCzJmypt5	": {
+    "jCzJmypt5": {
         schoolName: "ポイントC",
         color: "#3aabd2",
         fireworksImages: [image3_1, image3_2, image3_3],
