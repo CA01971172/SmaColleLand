@@ -31,7 +31,7 @@ export const SCHOOL_DATA: { [boothId: string]: SchoolInfo } = {
         color: "#00ff05",
         fireworksImages: [image1_1, image1_2, image1_3],
         mapData: {
-            pinX: 5,
+            pinX: 3,
             pinY: 55,
             schoolNameX: 0,
             schoolNameY: 0,
@@ -45,7 +45,7 @@ export const SCHOOL_DATA: { [boothId: string]: SchoolInfo } = {
         color: "#A456DF",
         fireworksImages: [image2_1, image2_2, image2_3],
         mapData: {
-            pinX: 38,
+            pinX: 15,
             pinY: 33,
             schoolNameX: 0,
             schoolNameY: 0,
@@ -59,7 +59,7 @@ export const SCHOOL_DATA: { [boothId: string]: SchoolInfo } = {
         color: "#3aabd2",
         fireworksImages: [image3_1, image3_2, image3_3],
         mapData: {
-            pinX: 143,
+            pinX: 65,
             pinY: 35,
             schoolNameX: 0,
             schoolNameY: 0,

@@ -14,7 +14,7 @@ export default function MapPage(){
     const getPinStyle = ( pinX:number, pinY:number, boothId:string ): CSSProperties => ({
         position: "absolute" as "absolute",
         top: `${pinY}vh`,
-        left: `${pinX}vw`,
+        left: `${pinX}vh`,
         width: "15vw",
         filter: "drop-shadow(5px 5px 0px rgba(0, 0, 0, 0.5))",
         animation: 
