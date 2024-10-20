@@ -1,6 +1,6 @@
 import { CSSProperties, useContext, useEffect, useState } from "react";
 import FooterPage from "../components/FooterPage";
-import mapBooth from "../images/map_booth.png";
+import mapBooth from "../images/map.png";
 import { SCHOOL_DATA } from "../utils/config";
 import { DataContext } from "../providers/DataProvider";
 import createdHanabiPin from "../images/マップピン/PassedPoint.png";
@@ -46,7 +46,13 @@ export default function MapPage(){
     return (
         <FooterPage>
         <style>{getAnimationStyle()}</style>
-            <div>
+            <div
+                style={{
+                    position: "relative",
+                    height: "100%",
+                    overflowX: "auto",
+                }}
+            >
                 <div 
                     style={{
                         maxHeight: "100%",
@@ -54,13 +60,18 @@ export default function MapPage(){
                         height: "100%",
                         position: "relative",
                         display: "flex",
-                        justifyContent: "center",
-                        textAlign: "center"
+                        justifyContent: "start",
+                        textAlign: "start"
                     }}
                 >
                     <img 
                         src={mapBooth}
-                        style={{width: "100%", height: "90vh", zIndex: -1}}
+                        style={{
+
+                            height: "100%",
+                            width: "auto",
+                            zIndex: -1
+                        }}
                     >
                     </img>
                 </div>

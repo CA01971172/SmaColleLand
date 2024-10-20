@@ -31,11 +31,11 @@ export const SCHOOL_DATA: { [boothId: string]: SchoolInfo } = {
         color: "#00ff05",
         fireworksImages: [image1_1, image1_2, image1_3],
         mapData: {
-            pinX: 46,
-            pinY: 19,
-            schoolNameX: 12,
-            schoolNameY: 26,
-            schoolNameWidth: 52,
+            pinX: 5,
+            pinY: 55,
+            schoolNameX: 0,
+            schoolNameY: 0,
+            schoolNameWidth: 0,
             writingMode: "horizontal-tb",
             pinImageSrc: pinA
         }
@@ -45,11 +45,11 @@ export const SCHOOL_DATA: { [boothId: string]: SchoolInfo } = {
         color: "#A456DF",
         fireworksImages: [image2_1, image2_2, image2_3],
         mapData: {
-            pinX: 3,
-            pinY: 5,
-            schoolNameX: 5,
-            schoolNameY: 5,
-            schoolNameWidth: 25,
+            pinX: 38,
+            pinY: 33,
+            schoolNameX: 0,
+            schoolNameY: 0,
+            schoolNameWidth: 0,
             writingMode: "horizontal-tb",
             pinImageSrc: pinB
         }
@@ -59,11 +59,11 @@ export const SCHOOL_DATA: { [boothId: string]: SchoolInfo } = {
         color: "#3aabd2",
         fireworksImages: [image3_1, image3_2, image3_3],
         mapData: {
-            pinX: 40,
-            pinY: 5,
-            schoolNameX: 35,
-            schoolNameY: 5,
-            schoolNameWidth: 26,
+            pinX: 143,
+            pinY: 35,
+            schoolNameX: 0,
+            schoolNameY: 0,
+            schoolNameWidth: 0,
             writingMode: "horizontal-tb",
             pinImageSrc: pinC
         }
