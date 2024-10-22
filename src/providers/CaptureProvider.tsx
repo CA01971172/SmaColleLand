@@ -63,7 +63,7 @@ export function CaptureProvider({children}: {children: ReactNode}){
 
         // 作成したcanvasに、ロゴを貼り付ける
         const img: HTMLImageElement = await loadImage(logoBanner);
-        const imgWidth: number = width * 0.8;
+        const imgWidth: number = width * 0.4;
         const imgHeight: number = img.height * (imgWidth / img.width);
         const padding: number = 5;
         const imgY: number = height - imgHeight - padding;

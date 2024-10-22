@@ -90,7 +90,7 @@ export default function PhotoPage(){
                         src={logoBanner}
                         style={{
                             position: "absolute",
-                            width: "80vw",
+                            width: "40vw",
                             bottom: "0",
                             opacity: "0.7",
                             padding: "5px",
